@@ -1,40 +1,56 @@
+'use client';
 import { Bar, BarChart, CartesianGrid, XAxis } from "recharts";
-import { ChartConfig, ChartContainer } from "@/components/ui/chart";
+import {
+  type ChartConfig,
+  ChartContainer,
+  ChartTooltip,
+  ChartTooltipContent,
+  ChartLegend,
+  ChartLegendContent,
+} from "@/components/ui/chart";
 
 const chartData = [
-  { month: "January", desktop: 186, mobile: 80 },
-  { month: "February", desktop: 305, mobile: 200 },
-  { month: "March", desktop: 237, mobile: 120 },
-  { month: "April", desktop: 73, mobile: 190 },
-  { month: "May", desktop: 209, mobile: 130 },
-  { month: "June", desktop: 214, mobile: 140 },
+  { month: "Mon", incoming: 35, answered: 26, experts: 25 },
+  { month: "Tue", incoming: 37, answered: 27, experts: 26 },
+  { month: "Wed", incoming: 47, answered: 34, experts: 33 },
+  { month: "Thu", incoming: 35, answered: 52, experts: 55 },
+  { month: "Fri", incoming: 45, answered: 32, experts: 31 },
+  { month: "Sat", incoming: 50, answered: 33, experts: 37 },
+  { month: "Sun", incoming: 55, answered: 34, experts: 33 },
 ];
 
 const chartConfig = {
-  desktop: {
-    label: "This week",
-    color: "#CCFBEF",
+  incoming: {
+    label: "Incoming",
+    color: "#8A94A6",
   },
-  mobile: {
-    label: "Last week",
-    color: "#134E48",
+  answered: {
+    label: "Answered",
+    color: "#15B79F",
+  },
+  experts: {
+    label: "Experts online",
+    color: "#FFE587",
   },
 } as ChartConfig;
 
 export default function ChartDesign() {
   return (
-    <ChartContainer config={chartConfig} className="min-h-[200px] w-full">
+    <ChartContainer config={chartConfig} className="min-h-[200px] w-full lg:max-h-[380px]">
       <BarChart accessibilityLayer data={chartData}>
         <CartesianGrid vertical={false} />
         <XAxis
           dataKey="month"
           tickLine={false}
-          tickMargin={10}
+          tickMargin={5}
           axisLine={false}
-          tickFormatter={(value) => value.slice(0, 3)}
+          tickFormatter={(value) => value}
         />
-        <Bar dataKey="desktop" fill="var(--color-desktop)" radius={4} />
-        <Bar dataKey="mobile" fill="var(--color-mobile)" radius={4} />
+        <ChartTooltip content={<ChartTooltipContent />} />
+        <ChartLegend content={<ChartLegendContent />} />
+        <Bar dataKey="incoming" fill="var(--color-incoming)" radius={4} />
+        <Bar dataKey="answered" fill="var(--color-answered)" radius={4} />
+        <Bar dataKey="experts" fill="var(--color-experts)" radius={4} />
       </BarChart>
     </ChartContainer>
   );

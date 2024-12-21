@@ -10,10 +10,12 @@ import Decrease from "../assets/img/Decrease.png";
 import Product from "../assets/img/product.png";
 import Vs from "../assets/img/vs.png";
 import Forecast from "../assets/img/forecast.png";
+import TrendUp from "../assets/img/trendUp.png";
 
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
-// import ChartDesign from "@/components/home/chart-design.tsx";
+import ChartDesign from "@/components/home/chart-design.tsx";
+import VsChartDesign from "@/components/home/vs-chart-design.tsx";
 
 import {
   Table,
@@ -106,37 +108,40 @@ export default function Home() {
       <div className="flex items-center justify-between mb-[32px]">
         <h1 className="text-3xl font-medium	text-[#212636]">Insights</h1>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-[64px]">
-        <div className="col-span-2 p-6 bg-white border border-gray-200 rounded-[20px] shadow-custom dark:bg-gray-800 dark:border-gray-700">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-4 mb-[64px]">
+        <div className="md:grid-cols-2 lg:col-span-4 p-6 bg-white border border-gray-200 rounded-[20px] shadow-custom dark:bg-gray-800 dark:border-gray-700">
           <h5 className="mb-2 text-[12px] font-semibold tracking-tight text-[#667085] dark:text-white uppercase flex items-center gap-x-2">
             <Image src={Chat} alt="Chat" />
             Consultations
           </h5>
-          <h2 className="text-[32px] font-medium text-[#212636] mb-2">24</h2>
-          <p className="font-normal text-[#667085] dark:text-gray-400 flex items-center gap-x-2">
-            <Image src={Increase} alt="Increase" />
-            <span className="text-[#15B79F] flex items-center gap-x-2">
-              15%
-            </span>
-            increase
-          </p>
+          <ChartDesign />
         </div>
         <div className="p-6 bg-white border border-gray-200 rounded-[20px] shadow-custom dark:bg-gray-800 dark:border-gray-700">
           <h5 className="mb-2 text-[12px] font-semibold tracking-tight text-[#667085] dark:text-white uppercase flex items-center gap-x-2">
             <Image src={Vs} alt="Vs" />
             VS PAST PERIOD
           </h5>
-          {/* <ChartDesign /> */}
+          <VsChartDesign />
         </div>
         <div className="p-6 bg-gradient-to-r from-[#15B79F] to-[#0E9382] border-gray-200 rounded-[20px] shadow-custom dark:bg-gradient-to-r from-[#15B79F] to-[#0E9382] dark:border-gray-700">
           <h5 className="mb-2 text-[12px] font-semibold tracking-tight text-[#CCFBEF] dark:text-white uppercase flex items-center gap-x-2">
             <Image src={Forecast} alt="Forecast" />
             FORECASTs
           </h5>
-          <h2 className="text-[56px] font-medium text-[#fff] mb-2">+15%</h2>
-          <p className="font-normal text-[#667085] dark:text-gray-400 flex items-center gap-x-2">
-            <Image src={Increase} alt="Increase" />
-            <span className="text-[#F04438]">15%</span> decrease
+          <div className="flex items-center justify-between mb-[12px]">
+            <h2 className="text-[56px] font-medium text-[#fff] mb-2">+15%</h2>
+            <Image src={TrendUp} alt="TrendUp" />
+          </div>
+          <p className="font-normal text-[#fff] dark:text-gray-400 mb-6">
+            forecasted increase in your sales closed by the end of the current
+            month
+          </p>
+          <div className="flex items-center justify-between mb-[12px]">
+            <h2 className="text-[56px] font-medium text-[#fff] mb-2">+20%</h2>
+            <Image src={TrendUp} alt="TrendUp" />
+          </div>
+          <p className="font-normal text-[#fff] dark:text-gray-400 mb-0">
+            forecasted increase in consultations by the end of the current month
           </p>
         </div>
       </div>
