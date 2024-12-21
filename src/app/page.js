@@ -18,6 +18,14 @@ import ChartDesign from "@/components/home/chart-design.tsx";
 import VsChartDesign from "@/components/home/vs-chart-design.tsx";
 
 import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+
+import {
   Table,
   TableBody,
   TableCell,
@@ -31,8 +39,21 @@ export default function Home() {
     <div>
       <div className="flex items-center justify-between mb-[32px]">
         <h1 className="text-3xl font-medium	text-[#212636]">At a glance</h1>
+        <Select>
+          <SelectTrigger className="w-[180px]" defaultValue="7days">
+            <SelectValue placeholder="Select Time" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="today">Today</SelectItem>
+            <SelectItem value="yesterday">Yesterday</SelectItem>
+            <SelectItem value="3days">3 days</SelectItem>
+            <SelectItem value="7days">7 days</SelectItem>
+            <SelectItem value="thismonth">This month</SelectItem>
+            <SelectItem value="thisyear">This year</SelectItem>
+          </SelectContent>
+        </Select>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-[64px]">
+      <div className="grid grid-cols-1 sm:grid-cols-2 2xl:grid-cols-3 gap-4 mb-[64px]">
         <div className="p-6 bg-white border border-gray-200 rounded-[20px] shadow-custom dark:bg-gray-800 dark:border-gray-700">
           <h5 className="mb-2 text-[12px] font-semibold tracking-tight text-[#667085] dark:text-white uppercase flex items-center gap-x-2">
             <Image src={Chat} alt="Chat" />
@@ -108,8 +129,8 @@ export default function Home() {
       <div className="flex items-center justify-between mb-[32px]">
         <h1 className="text-3xl font-medium	text-[#212636]">Insights</h1>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-4 mb-[64px]">
-        <div className="md:grid-cols-2 lg:col-span-4 p-6 bg-white border border-gray-200 rounded-[20px] shadow-custom dark:bg-gray-800 dark:border-gray-700">
+      <div className="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-5 gap-4 mb-[64px]">
+        <div className="md:col-span-2 2xl:col-span-3 p-6 bg-white border border-gray-200 rounded-[20px] shadow-custom dark:bg-gray-800 dark:border-gray-700">
           <h5 className="mb-2 text-[12px] font-semibold tracking-tight text-[#667085] dark:text-white uppercase flex items-center gap-x-2">
             <Image src={Chat} alt="Chat" />
             Consultations
@@ -151,14 +172,12 @@ export default function Home() {
       <Table className="border border-gray-200 dark:border-gray-700 rounded-[8px]">
         <TableHeader className="bg-[#F9FAFB] dark:bg-gray-800">
           <TableRow className="text-[#667085] dark:text-gray-400">
-            <TableHead className="py-4 w-[208px] rounded-[8px]">
-              Product
-            </TableHead>
-            <TableHead className="py-4">Date</TableHead>
-            <TableHead className="py-4">Time spent</TableHead>
-            <TableHead className="py-4">Order Value</TableHead>
-            <TableHead className="py-4">Commission</TableHead>
-            <TableHead className="py-4 text-right"></TableHead>
+            <TableHead className="py-4 w-[208px]">Product</TableHead>
+            <TableHead className="py-4 min-w-[180px]">Date</TableHead>
+            <TableHead className="py-4 min-w-[110px]">Time spent</TableHead>
+            <TableHead className="py-4 min-w-[110px]">Order Value</TableHead>
+            <TableHead className="py-4 min-w-[100px]">Commission</TableHead>
+            <TableHead className="py-4 min-w-[140px] text-right"></TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
