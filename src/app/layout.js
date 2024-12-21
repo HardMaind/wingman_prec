@@ -10,9 +10,9 @@ export default function Layout({ children }) {
       <body>
         <SidebarProvider defaultOpen={false}>
           <AppSidebar />
-          <main className="flex flex-col gap-2 transition-[width,height] ease-linear w-full">
+          <main className="flex flex-col transition-[width,height] ease-linear w-full">
             <AppHeader />
-            <div className="flex flex-1 flex-col mx-[40px] my-[36px] border border-black-100 p-6 rounded-[20px]">
+            <div className="flex flex-1 flex-col mx-6 md:mx-[40px] my-6 md:my-[36px] border border-black-100 p-6 rounded-[20px]">
               {children}
             </div>
           </main>
