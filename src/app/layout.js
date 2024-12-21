@@ -7,6 +7,10 @@ import '@/styles/scss/custom-theme.scss';
 export default function Layout({ children }) {
   return (
     <html>
+      <head>
+        <title>Wingman store</title>
+        <link rel="icon" src="/favicon.png" />
+      </head>
       <body>
         <SidebarProvider defaultOpen={false}>
           <AppSidebar />
