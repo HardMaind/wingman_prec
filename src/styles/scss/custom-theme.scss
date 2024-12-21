@@ -1,0 +1,53 @@
+body {
+  --sidebar-width: 16rem;
+  --sidebar-width-icon: 60px !important;
+}
+
+.diver-line {
+  background-color: #134e48;
+  height: 1px;
+  width: calc(100% - 32px);
+  margin: 16px 16px;
+}
+
+.sidebar-menu {
+  .data-\[active\=true\]\:bg-sidebar-accent[data-active='true'] {
+    span {
+      color: #000;
+    }
+    svg {
+      path {
+        fill: hsl(var(--sidebar-background));
+      }
+    }
+  }
+}
+
+.sidebar-menu-btn {
+  span {
+    color: #fff;
+  }
+  &:hover,
+  &.active {
+    span {
+      color: #000;
+    }
+    svg {
+      path {
+        fill: hsl(var(--sidebar-background));
+      }
+    }
+  }
+}
+
+.hader-menu {
+  li {
+    a {
+      color: #8a94a6;
+    }
+  }
+}
+
+
+// @import '@/styles/scss/ui/header.scss';
+// @import '@/styles/scss/ui/sidebar.scss'; 
